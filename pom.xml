@@ -10,6 +10,7 @@
   <modules>
     <module>mybatis</module>
     <module>sprmybatis</module>
+      <module>design</module>
   </modules>
   <packaging>pom</packaging>
 
