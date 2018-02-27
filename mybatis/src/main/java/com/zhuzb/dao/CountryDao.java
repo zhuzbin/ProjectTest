@@ -23,4 +23,6 @@ public interface CountryDao {
     public int saveCountry(Country country);
 
     public List<Country> getAll();
+
+    public Country getByName(String name);
 }

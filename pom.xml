@@ -11,6 +11,8 @@
     <module>mybatis</module>
     <module>sprmybatis</module>
       <module>design</module>
+      <module>redis</module>
+      <module>spring</module>
   </modules>
   <packaging>pom</packaging>
 

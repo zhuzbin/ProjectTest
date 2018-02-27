@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhuzb.dao.StudentMapper">
+
+    <resultMap id="map" type="com.zhuzb.model.Student">
+        <id column="id" property="id"/>
+        <result column="name" property="name" />
+        <result column="age" property="age"/>
+        <association property="grades" javaType="com.zhuzb.model.Grades" columnPrefix="grade_">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+    
+    <resultMap id="mapCol" type="com.zhuzb.model.Student">
+        <id column="id" property="id"/>
+        <result column="name" property="name" />
+        <result column="age" property="age"/>
+        <collection property="teachers" ofType="com.zhuzb.model.Teacher" columnPrefix="tea_">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="age" property="age"/>
+            <result column="address" property="address"/>
+        </collection>
+    </resultMap>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="map">
+      SELECT
+          s.id AS id,
+          s.name AS name,
+          s.age AS age,
+          g.id AS "grade_id",
+          g.name AS "grade_name"
+      FROM  student s,grades g where  g.id = s.grades_id AND s.id=#{id}
+    </select>
+
+    <select id="getByIdTea" parameterType="java.lang.Integer" resultMap="mapCol">
+      SELECT
+        s.id AS id,
+        s.name AS name,
+        s.age AS age,
+        t.id AS tea_id,
+        t.name AS tea_name,
+        t.age AS tea_age,
+        t.address AS tea_address
+      FROM student s,teacher t
+      WHERE s.id = #{id} AND s.id = t.stu_id
+    </select>
+
+    <insert id="save" parameterType="Student">
+        INSERT INTO student(name,age,grades_id) VALUES (#{name},#{age},#{gradesId})
+    </insert>
+</mapper>

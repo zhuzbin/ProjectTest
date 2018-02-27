@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
     <typeAliases>
@@ -26,7 +28,15 @@
         </environment>
     </environments>
 
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="SQL Server" value="sqlserver" />
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle"/>
+    </databaseIdProvider>
+
     <mappers>
         <mapper resource="mapper/CountryMapper.xml"></mapper>
+        <mapper resource="mapper/StudentMapper.xml"></mapper>
+        <mapper resource="mapper/GradesMapper.xml"></mapper>
     </mappers>
 </configuration>

@@ -1,12 +1,14 @@
 package com.zhuzb.model;
 
+import java.io.Serializable;
+
 /**
  * Desc：
  * User：ZhuZhiBin
  * Date：2018/1/15
  * Time：11:45
  */
-public class Country {
+public class Country implements Serializable {
 
     private int id;
     private String country_name;
