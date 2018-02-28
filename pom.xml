@@ -13,6 +13,8 @@
       <module>design</module>
       <module>redis</module>
       <module>spring</module>
+      <module>dubbo1</module>
+    <module>dubboconsumer</module>
   </modules>
   <packaging>pom</packaging>
 
