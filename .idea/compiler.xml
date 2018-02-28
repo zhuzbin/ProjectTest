@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="design" />
+        <module name="dubbo-consumer" />
+        <module name="dubbo-provider" />
         <module name="mybatis" />
         <module name="redis" />
         <module name="spring" />
@@ -15,6 +17,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="design" target="1.5" />
+      <module name="dubbo-consumer" target="1.5" />
+      <module name="dubbo-provider" target="1.5" />
       <module name="mybatis" target="1.5" />
       <module name="ProjectTest" target="1.5" />
       <module name="redis" target="1.5" />
