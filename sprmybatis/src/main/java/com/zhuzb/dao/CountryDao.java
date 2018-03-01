@@ -2,6 +2,7 @@ package com.zhuzb.dao;
 
 import com.zhuzb.model.Country;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Date：2018/1/15
  * Time：11:52
  */
+@Repository
 public interface CountryDao {
     public Country getById(@Param("id") String id, @Param("countryName") String countryName);
 
